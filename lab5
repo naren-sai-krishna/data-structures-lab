@@ -1,0 +1,55 @@
+1.   Find the name and the age of the youngest sailor.
+2   Find the name and the age of the oldest sailor.
+3    Find the names and ratings of sailor whose rating is better than some sailor called Horatio
+4  Find the names of sailors who have reserved all boats.
+5    count the number of different sailor names.
+6    find the average age of all sailors.
+7    find the average age of all sailors for each rating level. 
+8    find the names of the sailors who reserved a boat whose name has 'i' in it.
+9   Find the names of sailors who have reserved at least two different boats
+
+10    Find the sids of silors with age over 20 who have not reserved a red boat
+
+
+
+
+
+
+1.select distinct sail_sname,sail_age from sailor where sail_age=(select min(sail_age) from sailor);
+
+3.select distinct sail_sname,sail_rating from sailor where sail_rating>ANY(select sail_rating from sailor where sail_sname='HORATIO');
+                  
+   WHERE column_name operator ANY
+(SELECT column_name FROM table_name WHERE condition); 
+
+
+4. select sail_sname from sailor,reserves5  
+where
+
+5.select count(distinct sail_sname) from sailor where (select distinct sail_sname from sailor);
+
+5.select count(distinct sail_sname) from sailor;
+
+
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condition; 
+
+
+4.select sail_sname
+from sailor
+where sail_id=
+(
+select sail_id 
+from reserves5,boat3 b3 
+where b3.bt_bid=101 && b3.bt_bid=102 && b3.bt_bid=103 && b3.bt_bid=104 );
+
+
+6.find the average age of all sailors.
+  select avg(sail_age) from sailor;
+  select avg(sail_age) as avg_sailage from sailor
+
+
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition; 
